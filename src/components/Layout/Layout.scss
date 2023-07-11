@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  .active {
+    border: 3px solid blue;
+    color: blue;
+  }
+  a {
+    margin-top: 15px;
+    font-family: "Open Sans";
+    font-size: 25px;
+    color: whitesmoke;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+  }
+
+  .earn {
+    background-color: rgb(0, 255, 64);
+
+   
+  }
+  .expen {
+    background-color: red;
+  }
+}

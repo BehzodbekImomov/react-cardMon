@@ -1,20 +1,24 @@
-import React, { Fragment } from 'react'
-import { NavLink, Outlet } from 'react-router-dom'
+import React, { Fragment } from "react";
+import { Container } from "react-bootstrap";
+import { NavLink, Outlet } from "react-router-dom";
+
+import "./Layout.scss"
 
 const Layout = () => {
   return (
     <Fragment>
       <header>
-        <NavLink to="/home">Home</NavLink>
-        <NavLink to="/debts">Debts</NavLink>
-        <NavLink to="/transactions">Transactions</NavLink>
+        <Container className="header">
+          <NavLink className="expen" to="/debts">Expenses</NavLink>
+          <NavLink className="earn" to="/transactions">Earnings</NavLink>
+        </Container>
       </header>
       <main>
-        <Outlet/>
+        <Outlet />
       </main>
       <footer></footer>
     </Fragment>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

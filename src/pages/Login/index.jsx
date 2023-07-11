@@ -1,46 +1,52 @@
-// import React, { useState } from "react";
+import { useState } from "react";
 import { Button, Form, Col, Container } from "react-bootstrap";
-// import { useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import "./Login.scss";
 
 const Login = () => {
-  // const navigate = useNavigate();
-  // const [user, setUser] = useState({ userName: "", password: "" });
-  // const login = (e) => {
-  //   e.preventDefault();
-  //   if (user.userName === "behzod" && user.password === "123") {
-  //     navigate("/home");
-  //   } else {
-  //     alert("Ma'lumotlarni kiriting!");
-  //   }
-  //  function handlChange  (e)  {
-  //     setUser({ ...user, [e.target.name]: e.target.value });
-  //   };
-  // };
+  const navigate =useNavigate();
+
+  const [user,setUser]=useState({username:"",password:""})
+
+  const login = (e) => {
+    e.preventDefault();
+    console.log(user);
+
+    if (user.username === "behzod" && user.password === "123") {
+      
+      navigate("/debts");
+    } else {
+      alert("Check info !");
+    }
+  };
+
+  const handleChange = (e) =>{
+    setUser({...user,[e.target.name]:e.target.value})
+  }
+
+
   return (
-    <Container className="login-bg">
-      <Form  className="d-flex align-items-center justify-content-center flex-column mt-5">
+    <div className="login-bg ">
+
+    <Container >
+      <Form  className=" form d-flex align-items-center justify-content-center flex-column ">
         <Col className="mb-3 mt-5 ">
-          <Form.Group className="" as={Col} controlId="formGridEmail">
-            <Form.Label>User Name</Form.Label>
-            <Form.Control type="text" placeholder="Enter name" />
+          <Form.Group className="mt-5"  as={Col} controlId="formGridEmail">
+            <Form.Label className="mt-5 label" >User Name</Form.Label>
+            <Form.Control className="mb-3 input " name="username" value={user.username} onChange={handleChange} type="text" placeholder="Enter name" />
           </Form.Group>
 
-          <Form.Group className="" as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
+          <Form.Group   as={Col} controlId="formGridPassword">
+            <Form.Label className="label">Password</Form.Label>
+            <Form.Control className="input" name="password" value={user.password} onChange={handleChange} type="password" placeholder="Password" />
           </Form.Group>
         </Col>
-        <Button
-          variant="primary"
-          type="submit"
-          // onChange={handlChange}
-          // onClick={login}
-        >
+        <Button onClick={login} variant="primary" type="submit">
           Submit
         </Button>
       </Form>
     </Container>
+    </div>
   );
 };
 
